@@ -5,25 +5,21 @@ using namespace std;
 
 // } Driver Code Ends
 
-// User function template for C++
 class Solution {
   public:
-    int missingNumber(vector<int>& arr) {
+    int missingNum(vector<int>& arr) {
+          long long int  n = arr.size();
+        long long int expectedSum = ((n+1)*(n+2))/2;
+        long long int  actualSum = 0;
+        for(int i = 0; i < n ; i++)
+        {
+            actualSum += arr[i];    
+        }
+        long long int ans = expectedSum - actualSum;
+
+        return ans;
         // code here
-        long long sum = 0;
-       long long n = arr.size() + 1; // Since one number is missing, the original size should be n
-
-       // Sum all elements in the array
-       for (auto num : arr) {
-         sum += num;
-       }
-
-       // Calculate the expected sum of first n natural numbers using the formula: n * (n + 1) / 2
-       long long total = (n * (n + 1)) / 2;
-
-       // The missing number is the difference between the expected total and the actual sum
-       return total - sum;
-       
+        
     }
 };
 
@@ -47,7 +43,7 @@ int main() {
             a.push_back(num);
 
         Solution obj;
-        cout << obj.missingNumber(a) << endl;
+        cout << obj.missingNum(a) << endl;
         cout << "~\n";
     }
 
